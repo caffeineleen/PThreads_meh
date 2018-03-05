@@ -4,6 +4,8 @@
 #include <graphics.h>
 #include <time.h>
 
+//gcc -o mc Monte_Carlo.c
+
 //PUT DEFINITIONS HERE
 
 //SQUARE IS 200X200

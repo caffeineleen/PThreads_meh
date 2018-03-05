@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
+//gcc -o sdk Sudoku_Checker.c
 
 #define NUM_THREADS 9
 
