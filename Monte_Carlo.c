@@ -4,19 +4,33 @@
 #include <graphics.h>
 #include <time.h>
 
-void *numGenerator (void);
+//PUT DEFINITIONS HERE
 
+//SQUARE IS 200X200
 int main() {
-  void *numGenerator (void);
-  return 0;
+
+
+//return pi = 4 x (number of points in the circle/total number of points)
+
 }
 
-void *numGenerator (void){
+int *numGeneratorX (void){
   int i,n;
-
   srand(time(0));
 
-  for (int i; i < n; i++)  {
-    printf("%d\n", rand() % 50);
-  }
+  for (int i; i < n+1; i++)  {
+    printf("%d\n", rand() % 200);
 }
+int *numGeneratorY (void){
+    int i,n;
+}
+  srand(time(0));
+
+  for (int i; i < n+1; i++)  {
+    printf("%d\n", rand() % 200);
+  }
+
+//void function that grabs generated X and Y vals and return 2 coordinates
+
+//function to check whether point is in cirlce or not
+  //if point is greater than radius, it is outside the circle
