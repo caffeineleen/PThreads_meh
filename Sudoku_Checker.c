@@ -50,7 +50,7 @@ int main(int argc, char const *argv[]) {
     thread_tbt4, thread_tbt5, thread_tbt6, thread_tbt7, thread_tbt8, thread_tbt9;
 
   /* Initializes the threads */
-  pthread_create(&thread_cols, NULL, colChecker, );
+  pthread_create(&thread_cols, NULL, colChecker, /* needs parameter */);
   pthread_create(&thread_rows, NULL, rowChecker, );
   pthread_create(&thread_tbt1, NULL, tbtchecker, );
   pthread_create(&thread_tbt2, NULL, tbtchecker, );
@@ -64,17 +64,17 @@ int main(int argc, char const *argv[]) {
 
 
   /* Joins the threads and waits for them to finish executing */
-  pthread_join(thread_cols, );
-  pthread_join(thread_rows);
-  pthread_join(thread_tbt1);
-  pthread_join(thread_tbt2);
-  pthread_join(thread_tbt3);
-  pthread_join(thread_tbt4);
-  pthread_join(thread_tbt5);
-  pthread_join(thread_tbt6);
-  pthread_join(thread_tbt7);
-  pthread_join(thread_tbt8);
-  pthread_join(thread_tbt9);
+  pthread_join(thread_cols, /* needs return values */);
+  pthread_join(thread_rows, );
+  pthread_join(thread_tbt1, );
+  pthread_join(thread_tbt2, );
+  pthread_join(thread_tbt3, );
+  pthread_join(thread_tbt4, );
+  pthread_join(thread_tbt5, );
+  pthread_join(thread_tbt6, );
+  pthread_join(thread_tbt7, );
+  pthread_join(thread_tbt8, );
+  pthread_join(thread_tbt9, );
 
 
   /* code */
@@ -89,6 +89,7 @@ int main(int argc, char const *argv[]) {
   int g = tbtchecker(successBoard, 6, 6);
   int h = tbtchecker(successBoard, 6, 3);
 
+  pthread_exit(NULL);
   return 0;
 }
 
@@ -99,6 +100,7 @@ int colChecker(int array[9][9]) {
     {
       int count = 0;
       int num[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
       for(int j = 0; j < 9; j++)
       {
         for(int k = 0; k < 9; k++)
