@@ -13,23 +13,13 @@ double numGeneratorY();
 void pointGenerator();
 
 //GLOBAL VARIABLE
-int totalCount = 1;
-int insideCount = 0;
+double totalCount = 1;
+double insideCount = 0;
 int circleX = 100;
 int circleY = 100;
 
 //SQUARE IS 200X200
 
-double numGeneratorX(){
-  srand(time(0));
-  double xCoor = rand() % 200;
-  return xCoor;
-}
-
-double numGeneratorY(){
-    double yCoor = rand() % 200;
-    return yCoor;
-}
 
 int main() {
   //double xCoor = numGeneratorX();
@@ -38,20 +28,53 @@ int main() {
   int square[200][200];
   int radius = 100;
 
+  srand(time(NULL));
 
-  double pi = (4 * insideCount) / totalCount;
+  pointGenerator();
+  pointGenerator();
+  pointGenerator();
+  pointGenerator();
+  pointGenerator();
+
+  printf("The estimated value of insideCount is %f \n", insideCount);
+  printf("The estimated value of totalCount is %f \n", totalCount);
+
+  double pi = 0;
+  if(totalCount != 0)
+  {
+     pi = (4 * insideCount) / totalCount;
+  }
+  else
+  {
+    printf("Nothing inside the circle.");
+    return 0;
+  }
+  printf("Pi = (4 * %f) / %f \n", insideCount, totalCount);
   printf("The estimated value of Pi is %f \n", pi);
 
-
-
   return 0;
+}
+
+double numGeneratorX(){
+
+  double xCoor = rand() % 200;
+  return xCoor;
+}
+
+double numGeneratorY(){
+      double yCoor = rand() % 200;
+    return yCoor;
 }
 
 void pointGenerator(){
   double xCoor = numGeneratorX();
   double yCoor = numGeneratorY();
 
-  if (sqrt(((xCoor - circleX)*(xCoor - circleX) + ((yCoor - circleY)*(yCoor - circleY))) < 100)) {
+  printf("%f %f\n", xCoor, yCoor);
+
+  printf("Point Generator: %f \n", sqrt(((xCoor - circleX)*(xCoor - circleX) + ((yCoor - circleY)*(yCoor - circleY)))));
+
+  if (sqrt(((xCoor - circleX)*(xCoor - circleX) + ((yCoor - circleY)*(yCoor - circleY)))) < 100) {
     totalCount++;
     insideCount++;
   }
@@ -60,7 +83,3 @@ void pointGenerator(){
   }
   return;
 }
-
-
-//function to check whether point is in cirlce or not
-  //if point is greater than radius, it is outside the circle
